@@ -4,6 +4,9 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
+  /*======> Fonts <=======*/
+  --font-dosis: var(--font-mulish);
+
   /*======> Custom Breakpoint <=======*/
   --breakpoint-*: initial;
   --breakpoint-xsm: 360px;
@@ -20,18 +23,25 @@
   --color-primary-bg-dark: #0a0a0a;
   --color-secondary-bg-dark-1: #0e0e0e;
   --color-secondary-bg-dark-2: #111;
+  --color-primary-text-dark: #e6f1fa;
+  --color-secondary-text-dark: #dfdfdf;
+  --color-dark-primary-border:#17181a
 
   /*======> light mode <=======*/
-  --color-primary-bg-light: #f2f9fd;
+  --color-primary-bg-light: #ebf5ff;
+  /* #f2f9fd;; */
   --color-secondary-bg-light: #fafefe;
+  --color-primary-text-light: #071d54;
+  --color-secondary-text-light: #2a4f7c;
 }
 @layer components {
   .card-bg-gradient-dark {
     background-color: #000000;
-    background-image: linear-gradient(to bottom, #0e0e0e, #171717, #0e0c0c);
+    background-image: linear-gradient(to bottom, #0e0e0e, #171717, rgba(34, 36, 38, 0.4));
     box-shadow: 0 2px 7px 0 #0006;
     border-radius: 24px;
     transform: translate(0);
+    border: 1px solid #17181a;
   }
   .card-bg-gradient-light {
     background-color: #ffffff;
