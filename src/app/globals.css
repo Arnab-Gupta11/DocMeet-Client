@@ -25,11 +25,10 @@
   --color-secondary-bg-dark-2: #111;
   --color-primary-text-dark: #e6f1fa;
   --color-secondary-text-dark: #dfdfdf;
-  --color-dark-primary-border:#17181a
+  --color-dark-primary-border: #17181a;
 
   /*======> light mode <=======*/
-  --color-primary-bg-light: #ebf5ff;
-  /* #f2f9fd;; */
+  --color-primary-bg-light: #f2f9fd;
   --color-secondary-bg-light: #fafefe;
   --color-primary-text-light: #071d54;
   --color-secondary-text-light: #2a4f7c;

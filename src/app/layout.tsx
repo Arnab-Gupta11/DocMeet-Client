@@ -21,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${dosis.className} antialiased font-dosis `}>
+      <body className={`${dosis.className} antialiased font-dosis bg-primary-bg-light dark:bg-primary-bg-dark`}>
         <Providers>{children}</Providers>
       </body>
     </html>
