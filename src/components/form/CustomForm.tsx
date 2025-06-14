@@ -1,5 +1,5 @@
-import { Form } from "../ui/form";
 import { TCustomForm } from "@/types/form.types";
+import { Form } from "../ui/form";
 
 const CustomForm = ({ children, form, onSubmit }: TCustomForm) => {
   return (
