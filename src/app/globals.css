@@ -20,6 +20,8 @@
 
   /*======> Custom Colors <=======*/
   /*======> dark mode <=======*/
+  --color-primary: #14a0f1;
+
   --color-primary-bg-dark: #0a0a0a;
   --color-secondary-bg-dark-1: #0e0e0e;
   --color-secondary-bg-dark-2: #111;
@@ -29,7 +31,8 @@
 
   /*======> light mode <=======*/
   --color-primary-bg-light: #f2f9fd;
-  --color-secondary-bg-light: #fafefe;
+  --color-secondary-bg-light-1: #e5f2ff;
+  --color-secondary-bg-light-2: #fafefe;
   --color-primary-text-light: #071d54;
   --color-secondary-text-light: #2a4f7c;
 }
