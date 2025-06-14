@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import Logo from "../Logo";
 import Container from "../Container";
+import { ThemeToggler } from "../ThemeToggler";
 
 const Navbar = () => {
   return (
@@ -19,6 +20,7 @@ const Navbar = () => {
         </div>
         {/* action btn  */}
         <div className="flex items-center gap-5">
+          <ThemeToggler />
           <Button>SignUp</Button>
         </div>
       </Container>
