@@ -5,7 +5,7 @@
 
 @theme {
   /*======> Fonts <=======*/
-  --font-dosis: var(--font-mulish);
+  --font-dosis: var(--font-dosis);
 
   /*======> Custom Breakpoint <=======*/
   --breakpoint-*: initial;
@@ -37,15 +37,7 @@
   --color-secondary-text-light: #2a4f7c;
 }
 @layer components {
-  .card-bg-gradient-dark {
-    background-color: #000000;
-    background-image: linear-gradient(to bottom, #0e0e0e, #171717, rgba(34, 36, 38, 0.4));
-    box-shadow: 0 2px 7px 0 #0006;
-    border-radius: 24px;
-    transform: translate(0);
-    border: 1px solid #17181a;
-  }
-  .card-bg-gradient{
+  .card-bg-gradient {
     background-color: #ffffff;
     background-image: linear-gradient(to bottom, #ffffff, #f8f9fa, #f8f5f5);
     box-shadow: 0px 2px 3px 1px #e6f1fa;
@@ -68,5 +60,34 @@
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+  }
+}
+
+@layer base {
+  :root {
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+    --toast-background: #fafefe;
+    --toast-foreground: #18181b;
+    --toast-border: #e4e4e7;
+  }
+  .dark {
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+    --toast-background: #000000;
+    --toast-foreground: #fafafa;
+    --toast-border: #17181a;
   }
 }

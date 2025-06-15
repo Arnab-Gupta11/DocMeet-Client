@@ -23,18 +23,18 @@ const Banner = () => {
           <div className="space-y-8 pt-10 pb-5 lg:pt-20 lg:pb-28 w-full lg:w-1/2 text-center lg:text-left ">
             <Badge
               variant="outline"
-              className="font-semibold dark:bg-[#091E39] border-2 dark:border-[#014894] bg-[#e2f9f6] border-blue-400 px-2.5 py-1 sm:px-4 sm:py-1.5 text-blue-800 dark:text-white text-xs md:text-sm rounded-xl"
+              className="font-semibold dark:bg-[#091E39] border-2 dark:border-[#014894] bg-[#e2f9f6] border-blue-400 px-2.5 py-1 sm:px-4 sm:py-1 text-blue-800 dark:text-white text-xs md:text-sm rounded-xl tracking-wider"
             >
               Healthcare made simple
             </Badge>
-            <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-primary-text-light dark:text-primary-text-dark leading-tight">
+            <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-primary-text-light dark:text-primary-text-dark leading-tight tracking-wide">
               Book <span className="font-extrabold gradient-text">Appointments</span> with Trusted{" "}
               <span className="font-extrabold gradient-text">Doctors</span>
               <br />
               <span className="font-extrabold gradient-text">anytime, anywhere</span>
             </h1>
-            <p className="text-secondary-text-light dark:text-secondary-text-dark font-medium text-sm sm:text-lg md:text-xl">
-              Book appointments, consult via video, and manage your healthcare journey all in one secure platform.
+            <p className="text-secondary-text-light dark:text-secondary-text-dark font-medium text-sm sm:text-lg md:text-xl tracking-wide">
+              Book appointments, consult via video, and manage your healthcare <br /> journey all in one secure platform.
             </p>
             <div className="flex flex-row gap-4 items-center justify-center lg:justify-start">
               <Link href="/" className="">

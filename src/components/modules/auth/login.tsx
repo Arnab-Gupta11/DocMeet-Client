@@ -31,7 +31,7 @@ const Login = () => {
               <Logo width={40} height={40} />
             </Link>
           </div>
-          <p className="text-center text-sm font-medium text-secondary-text-light dark:text-secondary-text-dark pt-4">
+          <p className="text-center text-sm font-medium text-secondary-text-light dark:text-secondary-text-dark pt-4 tracking-wide">
             Welcome back! Log in to access your account and stay connected.
           </p>
         </div>
@@ -48,7 +48,7 @@ const Login = () => {
             </Button>
           </CustomForm>
         </div>
-        <p className="text-[15px] font-medium text-center text-secondary-text-light dark:text-secondary-text-dark mt-5">
+        <p className="text-[15px] font-medium text-center text-secondary-text-light dark:text-secondary-text-dark mt-5 tracking-wide">
           <Link href="/register">
             Don&apos;t have an Account? <span className="font-semibold text-primary hover:underline">Sign Up</span>
           </Link>

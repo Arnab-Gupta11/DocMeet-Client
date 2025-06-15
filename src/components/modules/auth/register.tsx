@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import React from "react";
 import { z } from "zod";
@@ -12,6 +13,10 @@ import useCustomForm from "@/hooks/useCustomForm";
 import Logo from "@/components/shared/Logo";
 import { SelectItem } from "@/components/ui/select";
 import { genderOptions, roleOptions } from "@/constants/user.constant";
+import { createNewUser } from "@/services/auth";
+import { toast } from "sonner";
+import { useRouter } from "next/navigation";
+import { ImSpinner6 } from "react-icons/im";
 
 export const registerFormDefaultValue = {
   fullName: "",
@@ -19,12 +24,38 @@ export const registerFormDefaultValue = {
   password: "",
   confirmedPassword: "",
   role: "",
+  gender: "",
 };
 const Register = () => {
-  function onSubmit(values: z.infer<typeof registerSchema>) {
-    console.log(values);
-  }
+  const router = useRouter();
   const [form] = useCustomForm(registerSchema, registerFormDefaultValue);
+  const {
+    formState: { isSubmitting },
+  } = form;
+
+  const onSubmit = async (data: z.infer<typeof registerSchema>) => {
+    try {
+      const userInfo = {
+        fullName: data.fullName,
+        email: data.email,
+        password: data.password,
+        confirmedPassword: data.confirmedPassword,
+        role: data.role,
+        gender: data.gender,
+      };
+      const res = await createNewUser(userInfo);
+      console.log(res);
+      if (res?.success) {
+        toast.success(res?.message);
+        router.push(`/verify-email/${res?.data?._id}`);
+      } else {
+        toast.error(res?.message);
+      }
+    } catch (err: any) {
+      console.error(err);
+    }
+  };
+
   return (
     <div className="px-3 md:px-5 lg:px-0">
       <div className="card-bg-gradient max-w-[450px] mx-auto my-10 p-10">
@@ -34,7 +65,7 @@ const Register = () => {
               <Logo width={40} height={40} />
             </Link>
           </div>
-          <div className="text-center text-sm font-medium text-secondary-text-light dark:text-secondary-text-dark pt-4">
+          <div className="text-center text-sm font-medium text-secondary-text-light dark:text-secondary-text-dark pt-4 tracking-wide">
             Create your account to explore jobs and grow your career.
           </div>
         </div>
@@ -67,13 +98,13 @@ const Register = () => {
               placeholder={"Confirm your password"}
             />
 
-            <Button className="w-full mt-8" type="submit">
-              Sign Up
+            <Button disabled={isSubmitting} type="submit" className="w-full mt-8 ">
+              {isSubmitting ? <ImSpinner6 className="animate-spin" /> : "Sign Up"}
             </Button>
           </CustomForm>
         </div>
         <div>
-          <p className="text-[15px] font-medium text-center text-secondary-text-light dark:text-secondary-text-dark mt-5">
+          <p className="text-[15px] font-medium text-center text-secondary-text-light dark:text-secondary-text-dark mt-5 tracking-wide">
             <Link href="/login">
               Already have an Account? <span className="font-semibold text-primary hover:underline">Sign In</span>
             </Link>
