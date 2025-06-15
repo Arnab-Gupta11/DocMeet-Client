@@ -30,7 +30,7 @@ const Navbar = () => {
         <div className="flex items-center gap-5">
           <ThemeToggler />
           <Button variant={"outline"} className="bg-secondary-bg-light-1 dark:bg-secondary-bg-dark-1 border-none">
-            Login
+            <Link href={"/login"}>Login</Link>
           </Button>
           <Button>
             <Link href={"/auth/register"}>Create Your Account</Link>

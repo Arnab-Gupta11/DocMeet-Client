@@ -45,12 +45,21 @@
     transform: translate(0);
     border: 1px solid #17181a;
   }
-  .card-bg-gradient-light {
+  .card-bg-gradient{
     background-color: #ffffff;
     background-image: linear-gradient(to bottom, #ffffff, #f8f9fa, #f8f5f5);
     box-shadow: 0px 2px 3px 1px #e6f1fa;
     border-radius: 24px;
     transform: translate(0);
+    border: 1px solid #e5f2ff;
+    @variant dark {
+      background-color: #000000;
+      background-image: linear-gradient(to bottom, #0e0e0e, #171717, rgba(34, 36, 38, 0.4));
+      box-shadow: 0 2px 7px 0 #0006;
+      border-radius: 24px;
+      transform: translate(0);
+      border: 1px solid #17181a;
+    }
   }
   .gradient-text {
     background-image: linear-gradient(to right bottom, #8fd0ff, #3787ff, rgb(0, 201, 255), #144ee3);
