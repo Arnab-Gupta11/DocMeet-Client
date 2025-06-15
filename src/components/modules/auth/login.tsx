@@ -24,7 +24,7 @@ const Login = () => {
 
   return (
     <div className="px-3 md:px-5 lg:px-0">
-      <div className="card-bg-gradient max-w-[400px] mx-auto mt-10 md:mt-28 p-10">
+      <div className="card-bg-gradient max-w-[450px] mx-auto mt-10 md:mt-28 p-10">
         <div>
           <div className="flex justify-center">
             <Link href={"/"}>
@@ -39,7 +39,7 @@ const Login = () => {
           <CustomForm onSubmit={onSubmit} form={form}>
             <CustomInput form={form} fieldName={"email"} label={"Email"} inputType={"text"} placeholder={"Enter your email"} />
             <CustomPassword form={form} fieldName={"password"} label={"Password"} inputType={"password"} placeholder={"Enter your password"} />
-            <p className="text-sm font-semibold text-primary hover:underline mt-2 pl-1">
+            <p className="text-base font-semibold text-primary hover:underline mt-2 pl-1">
               <Link href="/account/reset-password-link">Forgot password?</Link>
             </p>
 
@@ -48,8 +48,8 @@ const Login = () => {
             </Button>
           </CustomForm>
         </div>
-        <p className="text-sm font-medium text-center text-secondary-text-light dark:text-secondary-text-dark mt-5">
-          <Link href="/account/register">
+        <p className="text-[15px] font-medium text-center text-secondary-text-light dark:text-secondary-text-dark mt-5">
+          <Link href="/register">
             Don&apos;t have an Account? <span className="font-semibold text-primary hover:underline">Sign Up</span>
           </Link>
         </p>

@@ -9,14 +9,14 @@ const CustomSelect = ({ form, fieldName, label, placeholder, children }: TCustom
       name={fieldName}
       render={({ field }) => (
         <FormItem className="mt-4">
-          <FormLabel className="text-start ml-1 text-light-primary-text dark:text-dark-primary-txt font-semibold">{label}</FormLabel>
+          <FormLabel>{label}</FormLabel>
           <Select onValueChange={field.onChange} defaultValue={field.value}>
             <FormControl>
               <SelectTrigger>
                 <SelectValue placeholder={placeholder} />
               </SelectTrigger>
             </FormControl>
-            <SelectContent className="bg-primary-bg-light dark:bg-primary-bg-dark">{children}</SelectContent>
+            <SelectContent>{children}</SelectContent>
           </Select>
           <FormMessage className="text-red-500" />
         </FormItem>

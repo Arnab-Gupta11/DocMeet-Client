@@ -5,7 +5,6 @@ export const loginSchema = z.object({
   password: z.string().nonempty({ message: "Password is required." }),
 });
 
-
 //Register
 export const registerSchema = z
   .object({
@@ -31,19 +30,12 @@ export const registerSchema = z
       .min(8, "Confirmed password must be at least 8 characters long")
       .max(100, "Confirmed password cannot exceed 100 characters"),
     role: z.string().nonempty("Role is required"),
+    gender: z.string().nonempty("Gender is required"),
   })
   .refine((data) => data.password === data.confirmedPassword, {
     message: "Passwords do not match",
     path: ["confirmedPassword"],
   });
-
-export const registerFormDefaultValue = {
-  fullName: "",
-  email: "",
-  password: "",
-  confirmedPassword: "",
-  role: "",
-};
 
 //Forget Password Link
 export const resetPasswordLinkSchema = z.object({

@@ -33,7 +33,7 @@ const Navbar = () => {
             <Link href={"/login"}>Login</Link>
           </Button>
           <Button>
-            <Link href={"/auth/register"}>Create Your Account</Link>
+            <Link href={"/register"}>Create Your Account</Link>
           </Button>
         </div>
       </Container>
