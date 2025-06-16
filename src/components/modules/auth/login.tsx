@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import { Button } from "../../ui/button";
 import { z } from "zod";
@@ -8,6 +9,9 @@ import CustomPassword from "@/components/form/CustomPassword";
 import { loginSchema } from "@/schema/auth.schema";
 import useCustomForm from "@/hooks/useCustomForm";
 import Logo from "@/components/shared/Logo";
+import { loginUser } from "@/services/auth";
+import { toast } from "sonner";
+import { useRouter } from "next/navigation";
 
 export const loginFormDefaultValue = {
   email: "",
@@ -15,12 +19,33 @@ export const loginFormDefaultValue = {
 };
 
 const Login = () => {
+  const router = useRouter();
   const [form] = useCustomForm(loginSchema, loginFormDefaultValue);
   // console.log(form);
-  function onSubmit(values: z.infer<typeof loginSchema>) {
-    console.log(values);
-    form.reset();
-  }
+  const onSubmit = async (data: z.infer<typeof loginSchema>) => {
+    try {
+      const userInfo = {
+        email: data.email,
+        password: data.password,
+      };
+      const res = await loginUser(userInfo);
+      console.log("Response ", res);
+      if (res?.success) {
+        toast.success(res?.message);
+        if (res?.data?.role === "DOCTOR") {
+          router.push("/onboarding");
+        } else if (res?.data?.role === "PATIENT") {
+          router.push("/doctors");
+        } else if (res?.data?.role === "ADMIN") {
+          router.push("/");
+        }
+      } else {
+        toast.error(res?.message);
+      }
+    } catch (err: any) {
+      console.error(err);
+    }
+  };
 
   return (
     <div className="px-3 md:px-5 lg:px-0">
