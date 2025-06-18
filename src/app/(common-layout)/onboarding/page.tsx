@@ -1,5 +1,11 @@
+import DoctorVerificationForm from "@/components/modules/doctor-onboarding/DoctorVerificationForm";
+
 const OnboardingPage = () => {
-  return <div>OnboardingPage</div>;
+  return (
+    <div>
+      <DoctorVerificationForm />
+    </div>
+  );
 };
 
 export default OnboardingPage;

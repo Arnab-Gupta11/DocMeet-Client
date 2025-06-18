@@ -12,6 +12,7 @@ import Logo from "@/components/shared/Logo";
 import { loginUser } from "@/services/auth";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
+import { ImSpinner6 } from "react-icons/im";
 
 export const loginFormDefaultValue = {
   email: "",
@@ -21,6 +22,9 @@ export const loginFormDefaultValue = {
 const Login = () => {
   const router = useRouter();
   const [form] = useCustomForm(loginSchema, loginFormDefaultValue);
+  const {
+    formState: { isSubmitting },
+  } = form;
   // console.log(form);
   const onSubmit = async (data: z.infer<typeof loginSchema>) => {
     try {
@@ -68,8 +72,8 @@ const Login = () => {
               <Link href="/account/reset-password-link">Forgot password?</Link>
             </p>
 
-            <Button type="submit" className="w-full mt-8">
-              Sign In
+            <Button disabled={isSubmitting} type="submit" className="w-full mt-8 ">
+              {isSubmitting ? <ImSpinner6 className="animate-spin" /> : "Sign In"}
             </Button>
           </CustomForm>
         </div>

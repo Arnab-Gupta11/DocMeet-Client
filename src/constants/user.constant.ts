@@ -7,3 +7,7 @@ export const genderOptions = [
   { value: "female", label: "Female" },
   { value: "other", label: "Other" },
 ];
+export const doctorTypeOptions = [
+  { value: "MBBS", label: "MBBS" },
+  { value: "BDS", label: "BDS" },
+];

@@ -79,7 +79,7 @@ const VerifyEmail = () => {
             />
 
             <Button disabled={isSubmitting} type="submit" className="w-full mt-8 ">
-              {isSubmitting ? <ImSpinner6 className="animate-spin" /> : "Sign Up"}
+              {isSubmitting ? <ImSpinner6 className="animate-spin" /> : "Verify"}
             </Button>
           </CustomForm>
         </div>
