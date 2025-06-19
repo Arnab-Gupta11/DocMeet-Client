@@ -19,3 +19,13 @@ export type TCustomForm = {
   form: any;
   onSubmit: any;
 };
+
+//Custom Image Component type
+export type TCustomImageInput = {
+  form: any;
+  placeholder?: string;
+  fieldName: string;
+  label: string;
+  imgPreview: string | null;
+  setImagePreview: React.Dispatch<React.SetStateAction<string | null>>;
+};

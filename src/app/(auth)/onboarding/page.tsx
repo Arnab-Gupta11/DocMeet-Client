@@ -2,7 +2,7 @@ import DoctorVerificationForm from "@/components/modules/doctor-onboarding/Docto
 
 const OnboardingPage = () => {
   return (
-    <div>
+    <div className="px-3">
       <DoctorVerificationForm />
     </div>
   );

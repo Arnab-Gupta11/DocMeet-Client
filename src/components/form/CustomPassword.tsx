@@ -12,7 +12,7 @@ const CustomPassword = ({ form, fieldName, label, placeholder }: TCustomInput) =
       control={form.control}
       name={fieldName}
       render={({ field }) => (
-        <FormItem className="mt-4">
+        <FormItem className="mt-4 w-full">
           <FormLabel>{label}</FormLabel>
           <FormControl>
             <div className="relative">

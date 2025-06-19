@@ -8,7 +8,7 @@ const CustomSelect = ({ form, fieldName, label, placeholder, children }: TCustom
       control={form.control}
       name={fieldName}
       render={({ field }) => (
-        <FormItem className="mt-4">
+        <FormItem className="mt-4 w-full">
           <FormLabel>{label}</FormLabel>
           <Select onValueChange={field.onChange} defaultValue={field.value}>
             <FormControl>

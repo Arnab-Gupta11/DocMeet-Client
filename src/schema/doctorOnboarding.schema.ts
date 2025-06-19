@@ -9,7 +9,7 @@ export const doctorOnboardingSchema = z.object({
   department: z.string().min(1, "Department is required"),
   phone: z.string().min(1, "Phone number is required"),
   certificateImage: z
-    .instanceof(File)
+    .instanceof(File, { message: "Certificate image file is required" })
     .refine((file) => file.size > 0, "Certificate image file is required")
     .refine((file) => file.size <= 5 * 1024 * 1024, "File size must be under 5MB")
     .refine((file) => ["image/jpeg", "image/png", "image/webp"].includes(file.type), "Only JPG, PNG, or WEBP images are allowed"),
