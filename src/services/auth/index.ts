@@ -3,7 +3,7 @@
 
 import { cookies } from "next/headers";
 import { FieldValues } from "react-hook-form";
-
+import { jwtDecode } from "jwt-decode";
 // Create New User
 export const createNewUser = async (userData: FieldValues) => {
   try {
@@ -58,5 +58,17 @@ export const loginUser = async (userData: FieldValues) => {
     return result;
   } catch (error: any) {
     return Error(error);
+  }
+};
+
+//Get current login user.
+export const getCurrentUser = async () => {
+  const accessToken = (await cookies()).get("accessToken")?.value;
+  let decodedData = null;
+  if (accessToken) {
+    decodedData = await jwtDecode(accessToken);
+    return decodedData;
+  } else {
+    return null;
   }
 };
