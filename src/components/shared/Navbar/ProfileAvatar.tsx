@@ -1,5 +1,6 @@
 "use client";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import accountAvatar from "@/assets/accountAvatar.png";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -10,16 +11,13 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import useCurrenUser from "@/hooks/useCurrenUser";
-import { LogIn, LogOut, UserPlus } from "lucide-react";
-import Link from "next/link";
+import { CalendarClock, LogOut } from "lucide-react";
+import { TbLayoutDashboard } from "react-icons/tb";
+import Image from "next/image";
+
 import { CgProfile } from "react-icons/cg";
 const ProfileAvatar = () => {
   const { user } = useCurrenUser();
-  console.log(user?.profileImage);
-
-  // const handleLogout = async () => {
-
-  // };
 
   return (
     <div className="font-medium ">
@@ -27,15 +25,17 @@ const ProfileAvatar = () => {
         <DropdownMenuTrigger asChild>
           {user ? (
             <div className="flex items-center cursor-pointer group">
-              <Avatar className=" cursor-pointer flex items-center justify-center border-4 lg:border-r-0 border-sky-200 dark:border-dark-primary-border lg:ml-0 w-10 h-10 sm:w-12 sm:h-12">
+              <Avatar className=" cursor-pointer flex items-center justify-center border-4  border-sky-200 dark:border-dark-primary-border lg:ml-0 w-10 h-10 sm:w-12 sm:h-12">
                 <AvatarImage
                   src={user ? user?.profileImage : "https://github.com/shadcn.png"}
                   alt="@shadcn"
                   className="bg-secondary-bg-light-1 dark:bg-secondary-bg-dark-1"
                 />
-                <AvatarFallback className="bg-secondary-bg-light-1 dark:bg-secondary-bg-dark-1 ">DP</AvatarFallback>
+                <AvatarFallback className="flex items-center justify-center bg-secondary-bg-light-1 dark:bg-secondary-bg-dark-1 ">
+                  <Image src={accountAvatar} alt="DP" width={20} height={20} className="w-4 h-4 sm:w-7 sm:h-7" />
+                </AvatarFallback>
               </Avatar>
-              <p className="bg-secondary-bg-light-1 dark:bg-secondary-bg-dark-1 text-primary-text-light dark:text-primary-text-dark font-semibold -mx-2 px-4 py-1 rounded-r-full border-2 border-sky-100 dark:border-dark-primary-border group-hover:text-primary dark:group-hover:text-primary transition-colors duration-500 hidden lg:block">
+              <p className="bg-secondary-bg-light-1 dark:bg-secondary-bg-dark-1 text-primary-text-light dark:text-primary-text-dark font-semibold -mx-2 px-4 py-1 rounded-r-full border-2 border-sky-100 dark:border-dark-primary-border group-hover:text-primary dark:group-hover:text-primary transition-colors duration-500 hidden sm:block">
                 {user.fullName}
               </p>
             </div>
@@ -61,8 +61,26 @@ const ProfileAvatar = () => {
               </div>
             </div>
           </DropdownMenuLabel>
-          {/* <DropdownMenuSeparator /> */}
+          <DropdownMenuSeparator />
           <DropdownMenuGroup className="space-y-1.5"></DropdownMenuGroup>
+          {user && user.role === "DOCTOR" && (
+            <DropdownMenuItem
+              className="flex items-center hover:text-primary cursor-pointer hover:bg-secondary-bg-light-1 hover:dark:bg-secondary-bg-dark-1 rounded-xl font-semibold"
+              // onClick={handleLogout}
+            >
+              <TbLayoutDashboard className="w-4 h-4 mr-1 text-primary-text-light dark:text-primary-text-dark" />
+              Dashboard
+            </DropdownMenuItem>
+          )}
+          {user && user.role === "PATIENT" && (
+            <DropdownMenuItem
+              className="flex items-center hover:text-primary cursor-pointer hover:bg-secondary-bg-light-1 hover:dark:bg-secondary-bg-dark-1 rounded-xl font-semibold"
+              // onClick={handleLogout}
+            >
+              <CalendarClock className="w-4 h-4 mr-1 text-primary-text-light dark:text-primary-text-dark" />
+              My Appointment
+            </DropdownMenuItem>
+          )}
           {user && (
             <>
               <DropdownMenuSeparator />
