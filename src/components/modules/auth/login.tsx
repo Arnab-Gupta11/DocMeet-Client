@@ -13,6 +13,7 @@ import { loginUser } from "@/services/auth";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import { ImSpinner6 } from "react-icons/im";
+import useCurrenUser from "@/hooks/useCurrenUser";
 
 export const loginFormDefaultValue = {
   email: "",
@@ -21,6 +22,7 @@ export const loginFormDefaultValue = {
 
 const Login = () => {
   const router = useRouter();
+  const { setLoading } = useCurrenUser();
   const [form] = useCustomForm(loginSchema, loginFormDefaultValue);
   const {
     formState: { isSubmitting },
@@ -32,8 +34,10 @@ const Login = () => {
         password: data.password,
       };
       const res = await loginUser(userInfo);
+      setLoading(true);
       if (res?.success) {
         toast.success(res?.message);
+
         if (res?.data?.role === "DOCTOR") {
           if (res?.data?.doctorVerificationStatus === "draft") {
             router.push("/doctor-onboarding");
