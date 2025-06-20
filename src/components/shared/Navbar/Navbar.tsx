@@ -9,6 +9,7 @@ import { usePathname } from "next/navigation";
 import useCurrenUser from "@/hooks/useCurrenUser";
 import ProfileAvatar from "./ProfileAvatar";
 import { useEffect, useState } from "react";
+import NavSidebar from "./NavSidebar";
 
 //Navbar items.
 const menuItems = [
@@ -59,7 +60,7 @@ const Navbar = () => {
       <Container className="flex items-center justify-between h-20">
         {/* Logo */}
         <div>
-          <Logo width={40} height={40} />
+          <Logo width={40} height={40} className="text-2xl hidden sm:block" />
         </div>
 
         {/* Navigation Links */}
@@ -93,6 +94,7 @@ const Navbar = () => {
               </Button>
             </div>
           )}
+          <NavSidebar pathname={pathname} menuItems={menuItems} />
         </div>
       </Container>
     </div>
