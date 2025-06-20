@@ -25,7 +25,6 @@ const Login = () => {
   const {
     formState: { isSubmitting },
   } = form;
-  // console.log(form);
   const onSubmit = async (data: z.infer<typeof loginSchema>) => {
     try {
       const userInfo = {
@@ -33,11 +32,16 @@ const Login = () => {
         password: data.password,
       };
       const res = await loginUser(userInfo);
-      console.log("Response ", res);
       if (res?.success) {
         toast.success(res?.message);
         if (res?.data?.role === "DOCTOR") {
-          router.push("/onboarding");
+          if (res?.data?.doctorVerificationStatus === "draft") {
+            router.push("/doctor-onboarding");
+          } else if (res?.data?.doctorVerificationStatus === "approved") {
+            router.push("/doctors");
+          } else {
+            router.push("/");
+          }
         } else if (res?.data?.role === "PATIENT") {
           router.push("/doctors");
         } else if (res?.data?.role === "ADMIN") {
