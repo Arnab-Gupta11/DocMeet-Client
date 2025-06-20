@@ -5,9 +5,12 @@ import Container from "../Container";
 import { ThemeToggler } from "../ThemeToggler";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import useCurrenUser from "@/hooks/useCurrenUser";
 
 const Navbar = () => {
   const pathname = usePathname();
+  const { user } = useCurrenUser();
+  console.log(user);
   return (
     <div className=" bg-white dark:bg-black">
       <Container className="flex items-center justify-between h-20">
