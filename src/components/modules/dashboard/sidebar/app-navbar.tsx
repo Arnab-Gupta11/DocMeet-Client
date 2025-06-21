@@ -6,7 +6,7 @@ import { SidebarTrigger, useSidebar } from "@/components/ui/sidebar";
 import { cn } from "@/lib/utils";
 
 const AppNavbar = () => {
-   const { open } = useSidebar();
+  const { open } = useSidebar();
   return (
     <header
       className={cn(
