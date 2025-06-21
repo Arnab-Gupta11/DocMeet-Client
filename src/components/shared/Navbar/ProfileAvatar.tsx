@@ -53,7 +53,9 @@ const ProfileAvatar = () => {
             <div className="flex items-center gap-2 py-1.5 text-left text-sm ">
               <Avatar className="h-8 w-8 rounded-lg">
                 <AvatarImage src={user?.profileImage} alt={user?.fullName} />
-                <AvatarFallback className="rounded-lg">DP</AvatarFallback>
+                <AvatarFallback className="flex items-center justify-center bg-secondary-bg-light-1 dark:bg-secondary-bg-dark-1 ">
+                  <Image src={accountAvatar} alt="DP" width={20} height={20} className="w-4 h-4 sm:w-7 sm:h-7" />
+                </AvatarFallback>
               </Avatar>
               <div className="grid flex-1 text-left text-sm leading-tight">
                 <span className="truncate font-semibold text-light-primary-text dark:text-dark-primary-txt">{user?.fullName}</span>
