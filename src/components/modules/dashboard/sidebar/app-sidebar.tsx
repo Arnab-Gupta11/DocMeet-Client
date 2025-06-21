@@ -1,6 +1,6 @@
 "use client";
 import * as React from "react";
-import { LayoutDashboard, CalendarClock, CalendarRange, UserCircle, FileText, Settings, Icon } from "lucide-react";
+import { LayoutDashboard, CalendarClock, CalendarRange, UserCircle, FileText, Settings } from "lucide-react";
 import {
   Sidebar,
   SidebarContent,
