@@ -12,7 +12,7 @@ const AppMain = ({ children }: { children: ReactNode }) => {
           "py-5 px-3 sm:px-7 md:px-10": !open,
           "lg:pl-2 lg:pr-5 lg:py-5": open,
         },
-        "min-h-screen"
+        "min-h-screen px-3 py-5  sm:px-7 md:px-10 "
       )}
     >
       {children}

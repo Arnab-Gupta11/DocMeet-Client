@@ -2,6 +2,8 @@ import { Tabs, TabsContent, TabsList } from "@/components/ui/tabs";
 import { LuEye } from "react-icons/lu";
 import { FiEdit } from "react-icons/fi";
 import CustomTabTrigger from "@/components/ui/core/CustomTabTrigger";
+import ViewDoctorProfile from "@/components/modules/dashboard/doctors/profile/ViewDoctorProfile/ViewDoctorProfile";
+import EditDoctorProfile from "@/components/modules/dashboard/doctors/profile/EditDoctorProfile/EditDoctorProfile";
 const DoctorProfilePage = () => {
   return (
     <div className="">
@@ -20,10 +22,12 @@ const DoctorProfilePage = () => {
           </TabsList>
         </div>
 
-        <TabsContent value="doctor-preview" className="border-2 w-full">
-          Make changes to your account here.
+        <TabsContent value="doctor-preview">
+          <ViewDoctorProfile />
         </TabsContent>
-        <TabsContent value="edit-doctor-profile">Change your password here.</TabsContent>
+        <TabsContent value="edit-doctor-profile">
+          <EditDoctorProfile />
+        </TabsContent>
       </Tabs>
     </div>
   );
