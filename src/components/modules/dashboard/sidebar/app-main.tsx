@@ -9,8 +9,8 @@ const AppMain = ({ children }: { children: ReactNode }) => {
     <div
       className={cn(
         {
-          "py-5 px-3 md:px-10": !open,
-          "pl-3 pr-5 py-5": open,
+          "py-5 px-3 sm:px-7 md:px-10": !open,
+          "lg:pl-2 lg:pr-5 lg:py-5": open,
         },
         "min-h-screen"
       )}
