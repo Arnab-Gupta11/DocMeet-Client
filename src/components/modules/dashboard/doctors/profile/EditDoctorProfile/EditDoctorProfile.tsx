@@ -1,6 +1,7 @@
 import CustomTabTrigger from "@/components/ui/core/CustomTabTrigger";
 import { Tabs, TabsContent, TabsList } from "@/components/ui/tabs";
 import { AiOutlineBook, AiOutlineClockCircle, AiOutlineHome, AiOutlinePhone, AiOutlineUser } from "react-icons/ai";
+import DoctorPersonalInfoForm from "./DoctorPersonalInfoForm";
 
 const tabItems = [
   { title: "Personal", value: "personal", icon: AiOutlineUser },
@@ -14,7 +15,7 @@ const EditDoctorProfile = () => {
   return (
     <div>
       <Tabs defaultValue="personal">
-        <TabsList className="gap-2 flex items-center justify-between mb-8 card-bg-gradient w-full border-2 h-14 sm:h-16 rounded-xl p-1">
+        <TabsList className="gap-2 flex items-center justify-between mb-5 card-bg-gradient w-full border-2 h-14 sm:h-16 rounded-xl p-1 ">
           {tabItems.map(({ title, value, icon: Icon }) => (
             <CustomTabTrigger key={value} value={value}>
               <Icon className="text-xl md:text-base bs:text-xl block md:hidden xl:block" />
@@ -23,7 +24,9 @@ const EditDoctorProfile = () => {
           ))}
         </TabsList>
 
-        <TabsContent value="personal">hello</TabsContent>
+        <TabsContent value="personal">
+          <DoctorPersonalInfoForm />
+        </TabsContent>
       </Tabs>
     </div>
   );

@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useRef } from "react";
 import { FormControl, FormField, FormItem, FormLabel, FormMessage } from "../ui/form";
 import { AiOutlineCloudUpload } from "react-icons/ai";
 import { Input } from "../ui/input";
@@ -7,6 +8,8 @@ import { X } from "lucide-react";
 import { TCustomImageInput } from "@/types/form.types";
 
 const CustomImageInput = ({ form, fieldName, placeholder = "Upload Image", label, imgPreview, setImagePreview }: TCustomImageInput) => {
+  const inputRef = useRef<HTMLInputElement>(null); // ref to reset file input manually
+
   return (
     <div className="mt-4">
       <FormLabel className="pb-1.5">{label}</FormLabel>
@@ -26,6 +29,10 @@ const CustomImageInput = ({ form, fieldName, placeholder = "Upload Image", label
           <FormItem className="mt-2 w-full">
             <FormControl>
               <Input
+                ref={(e) => {
+                  ref(e);
+                  inputRef.current = e; // attach to our ref
+                }}
                 id="img"
                 type="file"
                 accept=".png,.jpg,.jpeg,.webp"
@@ -35,11 +42,10 @@ const CustomImageInput = ({ form, fieldName, placeholder = "Upload Image", label
                 onChange={(e) => {
                   const file = e.target.files?.[0];
                   if (file) {
-                    onChange(file); // ✅ update form state manually
+                    onChange(file);
                     setImagePreview(URL.createObjectURL(file));
                   }
                 }}
-                ref={ref}
               />
             </FormControl>
             <FormMessage className="text-red-500 mb-2" />
@@ -47,16 +53,17 @@ const CustomImageInput = ({ form, fieldName, placeholder = "Upload Image", label
         )}
       />
       {imgPreview && (
-        <div className=" relative w-44 h-44 overflow-hidden rounded-lg">
+        <div className="relative w-44 h-44 overflow-hidden rounded-lg">
           <Image src={imgPreview} alt="Preview" width={180} height={180} className="mt-3 object-fill rounded-lg border w-44 h-44" />
           <span
             onClick={() => {
-              form.setValue(fieldName, new File([], ""));
-              setImagePreview(null);
+              form.resetField(fieldName); // ✅ reset form field state
+              setImagePreview(null); // ✅ reset preview
+              if (inputRef.current) inputRef.current.value = ""; // ✅ reset file input element
             }}
             className="bg-red-500 dark:bg-red-500 w-8 h-8 rounded-lg flex items-center justify-center absolute top-3.5 right-0.5 cursor-pointer"
           >
-            <X />
+            <X className="text-white" />
           </span>
         </div>
       )}

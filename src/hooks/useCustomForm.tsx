@@ -11,6 +11,7 @@ const useCustomForm = <TFormSchema extends ZodTypeAny>(
   const form = useForm<z.infer<TFormSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues,
+    mode: "onChange",
   });
 
   return [form];
