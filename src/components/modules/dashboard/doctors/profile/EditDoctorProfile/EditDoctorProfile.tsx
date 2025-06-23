@@ -2,6 +2,7 @@ import CustomTabTrigger from "@/components/ui/core/CustomTabTrigger";
 import { Tabs, TabsContent, TabsList } from "@/components/ui/tabs";
 import { AiOutlineBook, AiOutlineClockCircle, AiOutlineHome, AiOutlinePhone, AiOutlineUser } from "react-icons/ai";
 import DoctorPersonalInfoForm from "./DoctorPersonalInfoForm";
+import DoctorEducationForm from "./DoctorEducationForm";
 
 const tabItems = [
   { title: "Personal", value: "personal", icon: AiOutlineUser },
@@ -26,6 +27,9 @@ const EditDoctorProfile = () => {
 
         <TabsContent value="personal">
           <DoctorPersonalInfoForm />
+        </TabsContent>
+        <TabsContent value="education">
+          <DoctorEducationForm/>
         </TabsContent>
       </Tabs>
     </div>
